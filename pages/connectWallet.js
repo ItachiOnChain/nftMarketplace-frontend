@@ -11,10 +11,6 @@ const connectWallet = () => {
       provider: images.provider1,
       name: "Metamask",
     },
-    {
-      provider: images.provider2,
-      name: "walletConnect",
-    },
   ];
   return (
     <div className={Style.connectWallet}>

@@ -57,8 +57,10 @@ import founder2 from "./founder2.jpg";
 import founder3 from "./founder3.jpg";
 import founder4 from "./founder4.jpg";
 import google from "./google.png";
+import LOGO from "./LOGO.jpg";
 
 export default {
+  LOGO,
   hero2,
   founder1,
   founder2,
