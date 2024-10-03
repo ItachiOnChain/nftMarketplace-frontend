@@ -11,16 +11,12 @@ const loginAndSignUp = () => {
 
   const socialImage = [
     {
-      social: images.facebook,
-      name: "Continue with Facebook",
+      social: images.google,
+      name: "Continue with Google",
     },
     {
       social: images.twitter,
       name: "Continue with twitter",
-    },
-    {
-      social: images.facebook,
-      name: "Continue with Facebook",
     },
   ];
   return (

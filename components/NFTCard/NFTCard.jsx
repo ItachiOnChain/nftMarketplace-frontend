@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsImages } from "react-icons/bs";
 import Image from "next/image";
 
-//INTERNAL IMPORT
+// INTERNAL IMPORT
 import Style from "./NFTCard.module.css";
 import images from "../../img";
 
 const NFTCard = () => {
-  const [like, setLike] = useState(Array(9).fill(true));
+  const [like, setLike] = useState(Array(9).fill(false));
+  const [remainingTimes, setRemainingTimes] = useState([]);
 
   const likeNft = (index) => {
     setLike((prevLikes) =>
@@ -21,7 +22,7 @@ const NFTCard = () => {
       image: images.nft_image_1,
       title: "Clone #17373",
       bid: "1.000ETH",
-      time: "3h : 15m : 20s",
+      time: Date.now() + 3 * 3600 * 1000 + 15 * 60 * 1000 + 20 * 1000, // 3 hours, 15 minutes, 20 seconds from now
       stock: 61,
       likes: 22,
     },
@@ -29,7 +30,7 @@ const NFTCard = () => {
       image: images.nft_image_2,
       title: "Clone #17374",
       bid: "2.500ETH",
-      time: "5h : 20m : 10s",
+      time: Date.now() + 5 * 3600 * 1000 + 20 * 60 * 1000 + 10 * 1000, // 5 hours, 20 minutes, 10 seconds
       stock: 45,
       likes: 34,
     },
@@ -37,7 +38,7 @@ const NFTCard = () => {
       image: images.nft_image_3,
       title: "Clone #17375",
       bid: "0.800ETH",
-      time: "1h : 50m : 05s",
+      time: Date.now() + 1 * 3600 * 1000 + 50 * 60 * 1000 + 5 * 1000, // 1 hour, 50 minutes, 5 seconds
       stock: 20,
       likes: 15,
     },
@@ -45,7 +46,7 @@ const NFTCard = () => {
       image: images.nft_image_1,
       title: "Clone #17376",
       bid: "3.000ETH",
-      time: "4h : 45m : 30s",
+      time: Date.now() + 4 * 3600 * 1000 + 45 * 60 * 1000 + 30 * 1000, // 4 hours, 45 minutes, 30 seconds
       stock: 90,
       likes: 42,
     },
@@ -53,7 +54,7 @@ const NFTCard = () => {
       image: images.nft_image_2,
       title: "Clone #17377",
       bid: "1.200ETH",
-      time: "2h : 30m : 40s",
+      time: Date.now() + 2 * 3600 * 1000 + 30 * 60 * 1000 + 40 * 1000, // 2 hours, 30 minutes, 40 seconds
       stock: 75,
       likes: 56,
     },
@@ -61,7 +62,7 @@ const NFTCard = () => {
       image: images.nft_image_3,
       title: "Clone #17378",
       bid: "4.000ETH",
-      time: "6h : 10m : 55s",
+      time: Date.now() + 6 * 3600 * 1000 + 10 * 60 * 1000 + 55 * 1000, // 6 hours, 10 minutes, 55 seconds
       stock: 12,
       likes: 28,
     },
@@ -69,7 +70,7 @@ const NFTCard = () => {
       image: images.nft_image_1,
       title: "Clone #17379",
       bid: "2.100ETH",
-      time: "7h : 00m : 00s",
+      time: Date.now() + 7 * 3600 * 1000, // 7 hours
       stock: 34,
       likes: 78,
     },
@@ -77,7 +78,7 @@ const NFTCard = () => {
       image: images.nft_image_2,
       title: "Clone #17380",
       bid: "0.900ETH",
-      time: "8h : 20m : 45s",
+      time: Date.now() + 8 * 3600 * 1000 + 20 * 60 * 1000 + 45 * 1000, // 8 hours, 20 minutes, 45 seconds
       stock: 67,
       likes: 19,
     },
@@ -85,11 +86,36 @@ const NFTCard = () => {
       image: images.nft_image_3,
       title: "Clone #17381",
       bid: "5.500ETH",
-      time: "9h : 55m : 10s",
+      time: Date.now() + 9 * 3600 * 1000 + 55 * 60 * 1000 + 10 * 1000, // 9 hours, 55 minutes, 10 seconds
       stock: 10,
       likes: 60,
     },
   ];
+
+  // Format the remaining time as hh:mm:ss
+  const formatTime = (ms) => {
+    const totalSeconds = Math.floor(ms / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    return `${hours}h : ${minutes}m : ${seconds}s`;
+  };
+
+  useEffect(() => {
+    const updateRemainingTimes = () => {
+      setRemainingTimes(
+        CardArray.map((el) => {
+          const remainingTime = el.time - Date.now();
+          return remainingTime > 0 ? remainingTime : 0; // Ensure no negative times
+        })
+      );
+    };
+
+    // Update the countdown every second
+    const interval = setInterval(updateRemainingTimes, 1000);
+
+    return () => clearInterval(interval); // Clean up on unmount
+  }, []);
 
   return (
     <div className={Style.NFTCard}>
@@ -112,20 +138,18 @@ const NFTCard = () => {
                 onClick={() => likeNft(i)}
               >
                 {like[i] ? (
-                  <AiOutlineHeart />
+                  <AiFillHeart className={Style.NFTCard_box_update_left_like_icon} />
                 ) : (
-                  <AiFillHeart
-                    className={Style.NFTCard_box_update_left_like_icon}
-                  />
+                  <AiOutlineHeart />
                 )}
-                {""} {el.likes}
+                {""} {el.likes + (like[i] ? 1 : 0)}
               </div>
             </div>
 
             <div className={Style.NFTCard_box_update_right}>
               <div className={Style.NFTCard_box_update_right_info}>
                 <small>Remaining time</small>
-                <p>{el.time}</p>
+                <p>{formatTime(remainingTimes[i])}</p>
               </div>
             </div>
           </div>

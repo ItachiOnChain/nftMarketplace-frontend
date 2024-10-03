@@ -66,7 +66,7 @@ const Filter = () => {
           <button onClick={() => {}}>Photography</button>
         </div>
 
-        <div className={Style.filter_box_right}>
+        {/* <div className={Style.filter_box_right}>
           <div
             className={Style.filter_box_right_box}
             onClick={() => openFilter()}
@@ -74,19 +74,19 @@ const Filter = () => {
             <FaFilter />
             <span>Filter</span> {filter ? <FaAngleDown /> : <FaAngleUp />}
           </div>
-        </div>
+        </div> */}
       </div>
 
       {filter && (
         <div className={Style.filter_box_items}>
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div className={Style.filter_box_items_box_item}>
               <FaWallet /> <span>10 ETH</span>
               <AiFillCloseCircle />
             </div>
-          </div>
+          </div> */}
 
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div
               className={Style.filter_box_items_box_item_trans}
               onClick={() => openImage()}
@@ -94,9 +94,9 @@ const Filter = () => {
               <FaImages /> <small>Images</small>
               {image ? <AiFillCloseCircle /> : <TiTick />}
             </div>
-          </div>
+          </div> */}
 
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div
               className={Style.filter_box_items_box_item_trans}
               onClick={() => openVideo()}
@@ -104,9 +104,9 @@ const Filter = () => {
               <FaVideo /> <small>Videos</small>
               {video ? <AiFillCloseCircle /> : <TiTick />}
             </div>
-          </div>
+          </div> */}
 
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div
               className={Style.filter_box_items_box_item_trans}
               onClick={() => openMusic()}
@@ -114,14 +114,14 @@ const Filter = () => {
               <FaMusic /> <small>Musics</small>
               {music ? <AiFillCloseCircle /> : <TiTick />}
             </div>
-          </div>
+          </div> */}
 
-          <div className={Style.filter_box_items_box}>
+          {/* <div className={Style.filter_box_items_box}>
             <div className={Style.filter_box_items_box_item}>
               <FaUserAlt /> <span>Verified</span>
               <MdVerified />
             </div>
-          </div>
+          </div> */}
         </div>
       )}
     </div>

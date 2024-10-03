@@ -14,7 +14,7 @@ const Profile = () => {
     <div className={Style.profile}>
       <div className={Style.profile_account}>
         <Image
-          src={images.user1}
+          src={images.profileImg}
           alt="user profile"
           width={50}
           height={50}
@@ -22,8 +22,8 @@ const Profile = () => {
         />
 
         <div className={Style.profile_account_info}>
-          <p>Itachi Uchiha</p>
-          <small>X038499382920203...</small>
+          <p>Neo_Guest</p>
+          <small>0X00000000000...</small>
         </div>
       </div>
 

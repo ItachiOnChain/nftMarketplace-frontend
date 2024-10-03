@@ -6,6 +6,7 @@ import images from "../../img";
 import { NFTCardTwo } from "../../collectionPage/collectionIndex";
 import FollowerTabCard from "../../components/FollowerTab/FollowerTabCard/FollowerTabCard";
 
+
 const AuthorNFTCardBox = ({
   collectiables,
   created,
@@ -13,30 +14,31 @@ const AuthorNFTCardBox = ({
   follower,
   following,
 }) => {
+
   const collectiablesArray = [
-    images.nft_image_1,
-    images.nft_image_2,
-    images.nft_image_3,
-    images.nft_image_1,
-    images.nft_image_2,
-    images.nft_image_3,
-    images.nft_image_1,
-    images.nft_image_2,
+    { id: 1, image: images.nft_image_1, likes: 21 },
+    { id: 2, image: images.nft_image_2, likes: 35 },
+    { id: 3, image: images.nft_image_3, likes: 12 },
+    { id: 4, image: images.nft_image_1, likes: 44 },
+    { id: 5, image: images.nft_image_2, likes: 15 },
+    { id: 6, image: images.nft_image_3, likes: 50 },
+    { id: 7, image: images.nft_image_1, likes: 28 },
+    { id: 8, image: images.nft_image_2, likes: 33 }
   ];
 
   const createdArray = [
-    images.nft_image_1,
-    images.nft_image_2,
-    images.nft_image_3,
-    images.nft_image_1,
+    { id: 1, image: images.nft_image_1, likes: 21 },
+    { id: 2, image: images.nft_image_2, likes: 35 },
+    { id: 3, image: images.nft_image_3, likes: 12 },
+    { id: 4, image: images.nft_image_1, likes: 44 }
   ];
 
   const likeArray = [
-    images.nft_image_1,
-    images.nft_image_2,
-    images.nft_image_3,
-    images.nft_image_1,
-    images.nft_image_2,
+    { id: 1, image: images.nft_image_1, likes: 21 },
+    { id: 2, image: images.nft_image_2, likes: 35 },
+    { id: 3, image: images.nft_image_3, likes: 12 },
+    { id: 4, image: images.nft_image_1, likes: 44 },
+    { id: 5, image: images.nft_image_2, likes: 15 }
   ];
 
   const followerArray = [

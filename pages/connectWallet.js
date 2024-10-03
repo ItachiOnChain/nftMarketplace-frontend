@@ -15,14 +15,6 @@ const connectWallet = () => {
       provider: images.provider2,
       name: "walletConnect",
     },
-    {
-      provider: images.provider3,
-      name: "walletlink",
-    },
-    {
-      provider: images.provider1,
-      name: "Formatic",
-    },
   ];
   return (
     <div className={Style.connectWallet}>

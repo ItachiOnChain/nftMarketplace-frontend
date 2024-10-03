@@ -70,7 +70,7 @@ const UloadNFT = () => {
           <label htmlFor="nft">Item Name</label>
           <input
             type="text"
-            placeholder="shoaib bhai"
+            placeholder="what is the name of Your creativity"
             className={formStyle.Form_box_input_userName}
             onChange={(e) => setItemName(e.target.value)}
           />
